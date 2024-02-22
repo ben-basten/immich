@@ -127,6 +127,7 @@ part 'model/map_marker_response_dto.dart';
 part 'model/map_theme.dart';
 part 'model/memory_lane_response_dto.dart';
 part 'model/merge_person_dto.dart';
+part 'model/metadata_search_dto.dart';
 part 'model/model_type.dart';
 part 'model/o_auth_authorize_response_dto.dart';
 part 'model/o_auth_callback_dto.dart';
@@ -168,6 +169,7 @@ part 'model/shared_link_response_dto.dart';
 part 'model/shared_link_type.dart';
 part 'model/sign_up_dto.dart';
 part 'model/smart_info_response_dto.dart';
+part 'model/smart_search_dto.dart';
 part 'model/system_config_dto.dart';
 part 'model/system_config_f_fmpeg_dto.dart';
 part 'model/system_config_job_dto.dart';
@@ -207,6 +209,9 @@ part 'model/user_avatar_color.dart';
 part 'model/user_dto.dart';
 part 'model/user_response_dto.dart';
 part 'model/validate_access_token_response_dto.dart';
+part 'model/validate_library_dto.dart';
+part 'model/validate_library_import_path_response_dto.dart';
+part 'model/validate_library_response_dto.dart';
 part 'model/video_codec.dart';
 
 

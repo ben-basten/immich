@@ -83,8 +83,6 @@
   let album = data.album;
   let description = album.description;
 
-  $: album = data.album;
-
   $: {
     if (!album.isActivityEnabled && $numberOfComments === 0) {
       isShowActivity = false;
@@ -127,6 +125,7 @@
   $: isOwned = $user.id == album.ownerId;
   $: isAllUserOwned = [...$selectedAssets].every((asset) => asset.ownerId === $user.id);
   $: isAllFavorite = [...$selectedAssets].every((asset) => asset.isFavorite);
+  $: isAllArchived = [...$selectedAssets].every((asset) => asset.isArchived);
   $: {
     assetGridWidth = isShowActivity ? globalWidth - (globalWidth < 768 ? 360 : 460) : globalWidth;
   }
@@ -451,7 +450,10 @@
           description,
         },
       });
-
+      notificationController.show({
+        type: NotificationType.Info,
+        message: 'Album description has been updated',
+      });
       album.description = description;
     } catch (error) {
       handleError(error, 'Error updating album description');
@@ -473,9 +475,9 @@
         </AssetSelectContextMenu>
         <AssetSelectContextMenu icon={mdiDotsVertical} title="Menu">
           {#if isAllUserOwned}
-            <FavoriteAction menuItem removeFavorite={isAllFavorite} />
+            <FavoriteAction menuItem removeFavorite={isAllFavorite} onFavorite={() => assetStore.triggerUpdate()} />
+            <ArchiveAction menuItem unarchive={isAllArchived} onArchive={() => assetStore.triggerUpdate()} />
           {/if}
-          <ArchiveAction menuItem />
           <DownloadAction menuItem filename="{album.albumName}.zip" />
           {#if isOwned || isAllUserOwned}
             <RemoveFromAlbum menuItem bind:album onRemove={(assetIds) => handleRemoveAssets(assetIds)} />
@@ -591,6 +593,7 @@
           isShared={album.sharedUsers.length > 0}
           isSelectionMode={viewMode === ViewMode.SELECT_THUMBNAIL}
           singleSelect={viewMode === ViewMode.SELECT_THUMBNAIL}
+          showArchiveIcon
           on:select={({ detail: asset }) => handleUpdateThumbnail(asset.id)}
           on:escape={handleEscape}
         >
@@ -670,7 +673,9 @@
                   placeholder="Add description"
                 />
               {:else if description}
-                <p class="break-words whitespace-pre-line w-full text-black dark:text-white text-base">{description}</p>
+                <p class="break-words whitespace-pre-line w-full text-black dark:text-white text-base">
+                  {description}
+                </p>
               {/if}
             </section>
           {/if}

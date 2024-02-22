@@ -5,7 +5,12 @@
   import type { AssetStore, Viewport } from '$lib/stores/assets.store';
   import { locale } from '$lib/stores/preferences.store';
   import { getAssetRatio } from '$lib/utils/asset-utils';
-  import { formatGroupTitle, fromLocalDateTime, splitBucketIntoDateGroups } from '$lib/utils/timeline-util';
+  import {
+    calculateWidth,
+    formatGroupTitle,
+    fromLocalDateTime,
+    splitBucketIntoDateGroups,
+  } from '$lib/utils/timeline-util';
   import type { AssetResponseDto } from '@immich/sdk';
   import { mdiCheckCircle, mdiCircleOutline } from '@mdi/js';
   import justifiedLayout from 'justified-layout';
@@ -20,6 +25,7 @@
   export let viewport: Viewport;
   export let singleSelect = false;
   export let withStacked = false;
+  export let showArchiveIcon = false;
 
   export let assetStore: AssetStore;
   export let assetInteractionStore: AssetInteractionStore;
@@ -35,12 +41,6 @@
   let isMouseOverGroup = false;
   let actualBucketHeight: number;
   let hoveredDateGroup = '';
-
-  interface LayoutBox {
-    top: number;
-    left: number;
-    width: number;
-  }
 
   $: assetsGroupByDate = splitBucketIntoDateGroups(assets, $locale);
 
@@ -79,17 +79,6 @@
       heightDelta,
     });
   }
-
-  const calculateWidth = (boxes: LayoutBox[]): number => {
-    let width = 0;
-    for (const box of boxes) {
-      if (box.top < 100) {
-        width = box.left + box.width;
-      }
-    }
-
-    return width;
-  };
 
   const assetClickHandler = (asset: AssetResponseDto, assetsInDateGroup: AssetResponseDto[], groupTitle: string) => {
     if (isSelectionMode || $isMultiSelectState) {
@@ -182,6 +171,7 @@
           >
             <Thumbnail
               showStackedIcon={withStacked}
+              {showArchiveIcon}
               {asset}
               {groupIndex}
               on:click={() => assetClickHandler(asset, groupAssets, groupTitle)}

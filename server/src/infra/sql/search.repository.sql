@@ -77,9 +77,12 @@ FROM
       (
         "asset"."fileCreatedAt" >= $1
         AND "exifInfo"."lensModel" = $2
-        AND "asset"."ownerId" = $3
         AND 1 = 1
-        AND "asset"."isFavorite" = $4
+        AND 1 = 1
+        AND (
+          "asset"."isFavorite" = $3
+          AND "asset"."isArchived" = $4
+        )
         AND (
           "stack"."primaryAssetId" = "asset"."id"
           OR "asset"."stackId" IS NULL
@@ -177,16 +180,19 @@ WHERE
     AND "exifInfo"."lensModel" = $2
     AND 1 = 1
     AND 1 = 1
-    AND "asset"."isFavorite" = $3
+    AND (
+      "asset"."isFavorite" = $3
+      AND "asset"."isArchived" = $4
+    )
     AND (
       "stack"."primaryAssetId" = "asset"."id"
       OR "asset"."stackId" IS NULL
     )
-    AND "asset"."ownerId" IN ($4)
+    AND "asset"."ownerId" IN ($5)
   )
   AND ("asset"."deletedAt" IS NULL)
 ORDER BY
-  "search"."embedding" <= > $5 ASC
+  "search"."embedding" <= > $6 ASC
 LIMIT
   101
 COMMIT
