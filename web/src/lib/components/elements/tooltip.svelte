@@ -2,6 +2,8 @@
   import { mdiInformationOutline } from '@mdi/js';
   import Icon from './icon.svelte';
 
+  export let position: 'left' | 'right' = 'left';
+
   const tooltipId = `tooltip-${crypto.randomUUID()}`;
 
   let tooltipVisible = false;
@@ -26,6 +28,17 @@
       }
     }
   };
+
+  const getPosition = () => {
+    switch (position) {
+      case 'left': {
+        return 'right-6 top-0';
+      }
+      case 'right': {
+        return 'left-6 top-0';
+      }
+    }
+  };
 </script>
 
 <div class="absolute" role="presentation" on:mouseenter={showTooltip} on:mouseleave={hideTooltip}>
@@ -46,7 +59,7 @@
     role="tooltip"
     class="{tooltipVisible
       ? 'visible'
-      : 'hidden'} absolute flex place-content-center place-items-center whitespace-nowrap rounded-3xl border bg-immich-bg px-6 py-3 text-xs text-immich-fg shadow-lg dark:border-immich-dark-gray dark:bg-gray-600 dark:text-immich-dark-fg"
+      : 'hidden'} absolute {getPosition()} flex place-content-center place-items-center whitespace-nowrap rounded-3xl border bg-immich-bg px-6 py-3 text-xs text-immich-fg shadow-lg dark:border-immich-dark-gray dark:bg-gray-600 dark:text-immich-dark-fg"
   >
     <slot />
   </div>
