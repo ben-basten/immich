@@ -25,6 +25,8 @@
    */
   export let icon: string | undefined = undefined;
 
+  $: titleId = `${id}-title`;
+
   onMount(() => {
     if (browser) {
       const scrollTop = document.documentElement.scrollTop;
@@ -48,7 +50,7 @@
 <FocusTrap>
   <div
     aria-modal="true"
-    aria-labelledby={`${id}-title`}
+    aria-labelledby={titleId}
     style:z-index={zIndex}
     transition:fade={{ duration: 100, easing: quintOut }}
     class="fixed left-0 top-0 flex h-full w-full place-content-center place-items-center overflow-hidden bg-black/50"
@@ -58,10 +60,10 @@
         onOutclick: () => dispatch('close'),
         onEscape: () => dispatch('close'),
       }}
-      class="max-h-[95vh] min-h-[200px] w-[450px] overflow-y-auto rounded-lg bg-immich-bg shadow-md dark:bg-immich-dark-gray dark:text-immich-dark-fg immich-scrollbar"
+      class="max-h-[95vh] min-h-[200px] w-[450px] overflow-y-auto rounded-lg bg-immich-bg shadow-md dark:bg-immich-dark-gray dark:text-immich-dark-fg immich-scrollbar scroll-pb-20"
       tabindex="-1"
     >
-      <ModalHeader {id} {title} {showLogo} {icon} on:close />
+      <ModalHeader id={titleId} {title} {showLogo} {icon} on:close />
 
       <div>
         <slot />

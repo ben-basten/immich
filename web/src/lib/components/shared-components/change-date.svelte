@@ -63,6 +63,7 @@
 
 <div role="presentation" on:keydown={handleKeydown}>
   <ConfirmDialogue
+    id="edit-date-time-modal"
     confirmColor="primary"
     cancelColor="secondary"
     title="Edit date & time"
@@ -72,7 +73,6 @@
     onClose={handleCancel}
   >
     <div class="flex flex-col text-md px-4 text-center gap-2" slot="prompt">
-      <div class="mt-2" />
       <div class="flex flex-col">
         <label for="datetime">Date and Time</label>
         <DateInput

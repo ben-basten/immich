@@ -33,7 +33,7 @@
       <Icon path={icon} size={24} ariaHidden={true} class="text-immich-primary dark:text-immich-dark-primary" />
       <div class="w-2" />
     {/if}
-    <h1 id={`${id}-title`} class="text-xl font-medium text-immich-primary dark:text-immich-dark-primary mt-1">
+    <h1 {id} class="text-xl font-medium text-immich-primary dark:text-immich-dark-primary mt-1">
       {title}
     </h1>
   </div>

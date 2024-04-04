@@ -1,9 +1,9 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import ConfirmDialogue from '$lib/components/shared-components/confirm-dialogue.svelte';
-  import DeleteConfirmDialog from '$lib/components/admin-page/delete-confirm-dialoge.svelte';
+  import DeleteConfirmDialog from '$lib/components/admin-page/delete-confirm-dialogue.svelte';
   import LinkButton from '$lib/components/elements/buttons/link-button.svelte';
-  import RestoreDialogue from '$lib/components/admin-page/restore-dialoge.svelte';
+  import RestoreDialogue from '$lib/components/admin-page/restore-dialogue.svelte';
   import Button from '$lib/components/elements/buttons/button.svelte';
   import Icon from '$lib/components/elements/icon.svelte';
   import CreateUserForm from '$lib/components/forms/create-user-form.svelte';
@@ -171,6 +171,7 @@
 
       {#if shouldShowPasswordResetSuccess}
         <ConfirmDialogue
+          id="password-reset-success-modal"
           title="Password reset success"
           confirmText="Done"
           onConfirm={() => (shouldShowPasswordResetSuccess = false)}

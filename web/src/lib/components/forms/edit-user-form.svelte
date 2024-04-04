@@ -143,7 +143,8 @@
 
 {#if isShowResetPasswordConfirmation}
   <ConfirmDialogue
-    title="Reset Password"
+    id="reset-password-modal"
+    title="Reset password"
     confirmText="Reset"
     onConfirm={resetPassword}
     onClose={() => (isShowResetPasswordConfirmation = false)}

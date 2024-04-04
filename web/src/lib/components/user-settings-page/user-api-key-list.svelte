@@ -105,7 +105,8 @@
 
 {#if deleteKey}
   <ConfirmDialogue
-    prompt="Are you sure you want to delete this API Key?"
+    id="confirm-api-key-delete-modal"
+    prompt="Are you sure you want to delete this API key?"
     onConfirm={() => handleDelete()}
     onClose={() => (deleteKey = null)}
   />

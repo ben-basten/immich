@@ -19,6 +19,10 @@
    * Optional icon to display next to the modal title, if `showLogo` is false.
    */
   export let icon: string | undefined = undefined;
+  export let width: 'wide' | 'narrow' = 'narrow';
+
+  $: titleId = `${id}-title`;
+  $: modalWidth = width === 'wide' ? 'w-[750px]' : 'w-[450px]';
 </script>
 
 <FocusTrap>
@@ -28,12 +32,16 @@
     class="fixed left-0 top-0 z-[9990] flex h-screen w-screen place-content-center place-items-center bg-black/40"
   >
     <div
-      class="z-[9999] max-w-[95vw] max-h-[95vh] overflow-y-auto rounded-2xl p-4 py-8 bg-immich-bg shadow-md dark:bg-immich-dark-gray dark:text-immich-dark-fg immich-scrollbar"
+      class="z-[9999] max-w-[95vw] max-h-[95vh] {modalWidth} overflow-y-auto rounded-2xl bg-immich-bg shadow-md dark:bg-immich-dark-gray dark:text-immich-dark-fg immich-scrollbar"
       use:clickOutside={{ onOutclick: onClose, onEscape: onClose }}
       tabindex="-1"
+      aria-modal="true"
+      aria-labelledby={titleId}
     >
-      <ModalHeader {id} {title} {showLogo} {icon} on:close={() => onClose?.()} />
-      <slot />
+      <ModalHeader id={titleId} {title} {showLogo} {icon} on:close={() => onClose?.()} />
+      <div class="p-4 pt-0">
+        <slot />
+      </div>
     </div>
   </section>
 </FocusTrap>
