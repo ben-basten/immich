@@ -67,8 +67,8 @@
       <div class="ml-4">
         <SettingSwitch
           id="theme-selection"
-          title="Theme selection"
-          subtitle="Automatically set the theme to light or dark based on your browser's system preference"
+          title="Enable automatic theme selection"
+          subtitle="Automatically set the theme to light or dark based on your browser's system preference."
           bind:checked={$colorTheme.system}
           on:toggle={handleToggleColorTheme}
         />
@@ -77,8 +77,8 @@
       <div class="ml-4">
         <SettingSwitch
           id="default-locale"
-          title="Default Locale"
-          subtitle="Format dates and numbers based on your browser locale"
+          title="Use default locale"
+          subtitle="Format dates and numbers based on your browser locale."
           checked={$locale == undefined}
           on:toggle={handleToggleLocaleBrowser}
         >
@@ -121,8 +121,7 @@
       <div class="ml-4">
         <SettingSwitch
           id="show-delete-warning"
-          title="Permanent deletion warning"
-          subtitle="Show a warning when permanently deleting assets"
+          title="Show a warning when permanently deleting assets"
           bind:checked={$showDeleteModal}
         />
       </div>
@@ -130,16 +129,14 @@
       <div class="ml-4">
         <SettingSwitch
           id="people-sidebar-link"
-          title="People"
-          subtitle="Display a link to People in the sidebar"
+          title="Display a link to People in the sidebar"
           bind:checked={$sidebarSettings.people}
         />
       </div>
       <div class="ml-4">
         <SettingSwitch
           id="sharing-sidebar-link"
-          title="Sharing"
-          subtitle="Display a link to Sharing in the sidebar"
+          title="Display a link to Sharing in the sidebar"
           bind:checked={$sidebarSettings.sharing}
         />
       </div>
