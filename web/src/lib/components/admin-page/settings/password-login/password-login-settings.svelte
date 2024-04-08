@@ -50,9 +50,8 @@
       <div class="ml-4 mt-4 flex flex-col">
         <SettingSwitch
           id="enable-password-login"
-          title="ENABLED"
+          title="Login with email and password"
           {disabled}
-          subtitle="Login with email and password"
           bind:checked={config.passwordLogin.enabled}
         />
 

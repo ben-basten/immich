@@ -26,7 +26,7 @@
       <div class="flex flex-col gap-4">
         <SettingSwitch
           id="enable-machine-learning"
-          title="ENABLED"
+          title="Enable machine learning (ML)"
           subtitle="If disabled, all ML features will be disabled regardless of the below settings."
           {disabled}
           bind:checked={config.machineLearning.enabled}
@@ -53,7 +53,7 @@
         <div class="ml-4 mt-4 flex flex-col gap-4">
           <SettingSwitch
             id="enable-clip"
-            title="ENABLED"
+            title="Enable CLIP"
             subtitle="If disabled, images will not be encoded for smart search."
             bind:checked={config.machineLearning.clip.enabled}
             disabled={disabled || !config.machineLearning.enabled}
@@ -85,7 +85,7 @@
         <div class="ml-4 mt-4 flex flex-col gap-4">
           <SettingSwitch
             id="enable-facial-recognition"
-            title="ENABLED"
+            title="Enable facial recognition"
             subtitle="If disabled, images will not be encoded for facial recognition and will not populate the People section in the Explore page."
             bind:checked={config.machineLearning.facialRecognition.enabled}
             disabled={disabled || !config.machineLearning.enabled}

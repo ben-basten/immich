@@ -24,9 +24,8 @@
       <div class="ml-4 mt-4 flex flex-col gap-4">
         <SettingSwitch
           id="enable-trash-features"
-          title="ENABLED"
+          title="Enable Trash features"
           {disabled}
-          subtitle="Enable Trash features"
           bind:checked={config.trash.enabled}
         />
 

@@ -27,9 +27,8 @@
           <div class="ml-4 mt-4 flex flex-col gap-4">
             <SettingSwitch
               id="enable-map-features"
-              title="ENABLED"
+              title="Enable map features"
               {disabled}
-              subtitle="Enable map features"
               bind:checked={config.map.enabled}
             />
 
@@ -68,9 +67,8 @@
           <div class="ml-4 mt-4 flex flex-col gap-4">
             <SettingSwitch
               id="enable-reverse-geocoding"
-              title="ENABLED"
+              title="Enable reverse geocoding"
               {disabled}
-              subtitle="Enable reverse geocoding"
               bind:checked={config.reverseGeocoding.enabled}
             />
           </div></SettingAccordion

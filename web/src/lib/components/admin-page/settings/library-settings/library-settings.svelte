@@ -66,9 +66,8 @@
         <div class="ml-4 mt-4 flex flex-col gap-4">
           <SettingSwitch
             id="periodic-library-scan"
-            title="ENABLED"
+            title="Enable periodic library scanning"
             {disabled}
-            subtitle="Enable periodic library scanning"
             bind:checked={config.library.scan.enabled}
           />
 

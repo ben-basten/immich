@@ -108,9 +108,8 @@
     <div id="directory-path-builder" class="flex flex-col gap-4 {minified ? '' : 'ml-4 mt-4'}">
       <SettingSwitch
         id="storage-template-enabled"
-        title="ENABLED"
+        title="Enable storage template engine"
         {disabled}
-        subtitle="Enable storage template engine"
         bind:checked={config.storageTemplate.enabled}
         isEdited={!(config.storageTemplate.enabled === savedConfig.storageTemplate.enabled)}
       />
@@ -118,9 +117,9 @@
       {#if !minified}
         <SettingSwitch
           id="hash-verification-enabled"
-          title="HASH VERIFICATION ENABLED"
+          title="Enable hash verification"
           {disabled}
-          subtitle="Enables hash verification, don't disable this unless you're certain of the implications"
+          subtitle="Do not disable this unless you're certain of the implications."
           bind:checked={config.storageTemplate.hashVerificationEnabled}
           isEdited={!(
             config.storageTemplate.hashVerificationEnabled === savedConfig.storageTemplate.hashVerificationEnabled
