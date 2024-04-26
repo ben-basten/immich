@@ -571,7 +571,7 @@
                     {#if album.hasSharedLink && isOwned}
                       <CircleIconButton
                         title="Create link to share "
-                        backgroundColor="#d3d3d3"
+                        color={'gray'}
                         forceDark
                         size="20"
                         icon={mdiLink}
@@ -595,7 +595,7 @@
                     {#if albumHasViewers}
                       <CircleIconButton
                         title="View all users"
-                        backgroundColor="#d3d3d3"
+                        color={'gray'}
                         forceDark
                         size="20"
                         icon={mdiDotsVertical}
@@ -605,7 +605,7 @@
 
                     {#if isOwned}
                       <CircleIconButton
-                        backgroundColor="#d3d3d3"
+                        color={'gray'}
                         forceDark
                         size="20"
                         icon={mdiPlus}
