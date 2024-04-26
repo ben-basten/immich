@@ -1,14 +1,14 @@
 import '../src/app.css';
 
 export const parameters = {
-    backgrounds: {
-        default: 'light'
+  backgrounds: {
+    default: 'light',
+  },
+  // actions: {argTypesRegex: '^on[A-Z].*'},
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
     },
-    actions: {argTypesRegex: '^on[A-Z].*'},
-    controls: {
-        matchers: {
-            color: /(background|color)$/i,
-            date: /Date$/
-        }
-    }
+  },
 };

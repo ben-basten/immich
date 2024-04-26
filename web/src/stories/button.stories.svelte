@@ -31,15 +31,15 @@
       },
       rounded: {
         control: 'select',
-        options: ['lg', '3xl', 'full', false]
+        options: ['lg', '3xl', 'full', false],
       },
       shadow: {
         control: 'select',
-        options: ['md', false]
+        options: ['md', false],
       },
       slot: {
-        control: 'text'
-      }
+        control: 'text',
+      },
     },
     args: {
       type: 'button',
@@ -52,7 +52,7 @@
       border: false,
       title: '',
       form: undefined,
-      slot: 'Button text'
+      slot: 'Button text',
     },
   };
 </script>

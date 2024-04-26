@@ -20,7 +20,7 @@
     "test:cov": "vitest --coverage",
     "test:watch": "vitest dev",
     "prepare": "svelte-kit sync",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
