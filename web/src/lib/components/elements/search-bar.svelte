@@ -1,9 +1,9 @@
 <script lang="ts">
   import { mdiClose, mdiMagnify } from '@mdi/js';
-  import Icon from './icon.svelte';
   import { createEventDispatcher } from 'svelte';
   import type { SearchOptions } from '$lib/utils/dipatch';
   import LoadingSpinner from '../shared-components/loading-spinner.svelte';
+  import CircleIconButton from '$lib/components/elements/buttons/circle-icon-button.svelte';
 
   export let name: string;
   export let roundedBottom = true;
@@ -29,11 +29,13 @@
     ? 'rounded-2xl'
     : 'rounded-t-lg'} bg-gray-200 p-2 dark:bg-immich-dark-gray gap-2 place-items-center h-full"
 >
-  <button type="button" on:click={() => dispatch('search', { force: true })}>
-    <div class="w-fit">
-      <Icon path={mdiMagnify} size="24" />
-    </div>
-  </button>
+  <CircleIconButton
+    icon={mdiMagnify}
+    title="Search"
+    size="16"
+    padding="2"
+    on:click={() => dispatch('search', { force: true })}
+  />
   <input
     class="w-full gap-2 bg-gray-200 dark:bg-immich-dark-gray dark:text-white"
     type="text"
@@ -48,8 +50,6 @@
     </div>
   {/if}
   {#if name}
-    <button on:click={resetSearch}>
-      <Icon path={mdiClose} />
-    </button>
+    <CircleIconButton icon={mdiClose} title="Clear value" size="16" padding="2" on:click={resetSearch} />
   {/if}
 </div>
