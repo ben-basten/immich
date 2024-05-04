@@ -84,6 +84,7 @@
       title="Close"
       class="dark:text-immich-dark-gray"
       size="20"
+      padding="2"
       on:click={discard}
     />
   </div>
