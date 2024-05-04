@@ -243,7 +243,7 @@
                   <div class="flex items-start w-fit">
                     <CircleIconButton
                       icon={mdiDotsVertical}
-                      title="Options"
+                      title="Reaction options"
                       size="16"
                       on:click={() => (showDeleteReaction[index] ? '' : showOptionsMenu(index))}
                     />
