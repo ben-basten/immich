@@ -443,7 +443,8 @@
               <CircleIconButton
                 icon={mdiInformationOutline}
                 title="Show file location"
-                size="18"
+                size="16"
+                padding="2"
                 on:click={toggleAssetPath}
               />
             {/if}
