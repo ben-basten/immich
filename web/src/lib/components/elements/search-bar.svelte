@@ -10,11 +10,14 @@
   export let showLoadingSpinner: boolean;
   export let placeholder: string;
 
+  let inputRef: HTMLElement;
+
   const dispatch = createEventDispatcher<{ search: SearchOptions; reset: void }>();
 
   const resetSearch = () => {
     name = '';
     dispatch('reset');
+    inputRef?.focus();
   };
 
   const handleSearch = (event: KeyboardEvent) => {
@@ -41,6 +44,7 @@
     type="text"
     {placeholder}
     bind:value={name}
+    bind:this={inputRef}
     on:keydown={handleSearch}
     on:input={() => dispatch('search', { force: false })}
   />
