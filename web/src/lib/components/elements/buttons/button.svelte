@@ -18,6 +18,8 @@
 </script>
 
 <script lang="ts">
+  import Icon from '$lib/components/elements/icon.svelte';
+
   export let type: Type = 'button';
   export let color: Color = 'primary';
   export let size: Size = 'base';
@@ -27,6 +29,7 @@
   export let fullwidth = false;
   export let border = false;
   export let title: string | undefined = '';
+  export let icon: string | undefined = undefined;
   export let form: string | undefined = undefined;
 
   let className = '';
@@ -65,7 +68,6 @@
 <button
   {type}
   {disabled}
-  {title}
   {form}
   on:click
   on:focus
@@ -80,5 +82,11 @@
   class:w-full={fullwidth}
   class:border
 >
+  <div class="flex place-items-center gap-2 text-sm">
+    {#if icon}
+      <Icon path={icon} size="18" ariaHidden />
+    {/if}
+    {title}
+  </div>
   <slot />
 </button>

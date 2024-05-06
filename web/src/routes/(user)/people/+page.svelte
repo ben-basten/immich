@@ -400,13 +400,7 @@
             />
           </div>
         </div>
-        <!-- fixme -->
-        <LinkButton on:click={() => (selectHidden = !selectHidden)}>
-          <div class="flex flex-wrap place-items-center justify-center gap-x-1 text-sm">
-            <Icon path={mdiEyeOutline} size="18" />
-            <p class="ml-2">Show & hide people</p>
-          </div>
-        </LinkButton>
+        <LinkButton title="Show & hide people" icon={mdiEyeOutline} on:click={() => (selectHidden = !selectHidden)} />
       </div>
     {/if}
   </svelte:fragment>

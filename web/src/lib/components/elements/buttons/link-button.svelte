@@ -9,8 +9,9 @@
   export let disabled = false;
   export let fullwidth = false;
   export let title: string | undefined = undefined;
+  export let icon: string | undefined = undefined;
 </script>
 
-<Button {title} size="link" {color} shadow={false} rounded="lg" {disabled} on:click {fullwidth}>
+<Button {title} {icon} size="link" {color} shadow={false} rounded="lg" {disabled} on:click {fullwidth}>
   <slot />
 </Button>

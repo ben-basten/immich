@@ -128,12 +128,7 @@
     </svelte:fragment>
     <svelte:fragment slot="trailing">
       <div class="flex gap-4">
-        <Button
-          title={'Assign selected assets to a new person'}
-          size={'sm'}
-          disabled={disableButtons || hasSelection}
-          on:click={handleCreate}
-        >
+        <Button size={'sm'} disabled={disableButtons || hasSelection} on:click={handleCreate}>
           {#if !showLoadingSpinnerCreate}
             <Icon path={mdiPlus} size={18} />
           {:else}
@@ -141,12 +136,7 @@
           {/if}
           <span class="ml-2"> Create new Person</span></Button
         >
-        <Button
-          size={'sm'}
-          title={'Assign selected assets to an existing person'}
-          disabled={disableButtons || !hasSelection}
-          on:click={handleReassign}
-        >
+        <Button size={'sm'} disabled={disableButtons || !hasSelection} on:click={handleReassign}>
           {#if !showLoadingSpinnerReassign}
             <div>
               <Icon path={mdiMerge} size={18} class="rotate-180" />

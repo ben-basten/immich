@@ -195,27 +195,13 @@
 
   <UserPageLayout title={data.meta.title} admin>
     <div class="flex justify-end gap-2" slot="buttons">
-      <!-- fixme -->
-      <LinkButton on:click={() => copyToClipboard(JSON.stringify(config, null, 2))}>
-        <div class="flex place-items-center gap-2 text-sm">
-          <Icon path={mdiContentCopy} size="18" />
-          Copy to Clipboard
-        </div>
-      </LinkButton>
-      <!-- fixme -->
-      <LinkButton on:click={() => downloadConfig()}>
-        <div class="flex place-items-center gap-2 text-sm">
-          <Icon path={mdiDownload} size="18" />
-          Export as JSON
-        </div>
-      </LinkButton>
-      <!-- fixme -->
-      <LinkButton on:click={() => inputElement?.click()}>
-        <div class="flex place-items-center gap-2 text-sm">
-          <Icon path={mdiUpload} size="18" />
-          Import from JSON
-        </div>
-      </LinkButton>
+      <LinkButton
+        title="Copy to clipboard"
+        icon={mdiContentCopy}
+        on:click={() => copyToClipboard(JSON.stringify(config, null, 2))}
+      />
+      <LinkButton title="Export as JSON" icon={mdiDownload} on:click={() => downloadConfig()} />
+      <LinkButton title="Import from JSON" icon={mdiUpload} on:click={() => inputElement?.click()} />
     </div>
 
     <AdminSettings bind:config let:handleReset bind:handleSave let:savedConfig let:defaultConfig>

@@ -31,13 +31,7 @@
 <UserPageLayout title={data.meta.title} admin>
   <div class="flex justify-end" slot="buttons">
     <a href="{AppRoute.ADMIN_SETTINGS}?isOpen=job">
-      <!-- fixme -->
-      <LinkButton>
-        <div class="flex place-items-center gap-2 text-sm">
-          <Icon path={mdiCog} size="18" />
-          Manage Concurrency
-        </div>
-      </LinkButton>
+      <LinkButton title="Manage concurrency" icon={mdiCog} />
     </a>
   </div>
   <section id="setting-content" class="flex place-content-center sm:mx-4">
