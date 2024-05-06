@@ -85,6 +85,6 @@
     {#if icon}
       <Icon path={icon} size="18" ariaHidden />
     {/if}
-    <div><slot /></div>
+    <slot />
   </div>
 </button>
