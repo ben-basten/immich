@@ -34,6 +34,7 @@
   import GroupTab from '$lib/components/elements/group-tab.svelte';
   import { createAlbumAndRedirect, collapseAllAlbumGroups, expandAllAlbumGroups } from '$lib/utils/album-utils';
   import { fly } from 'svelte/transition';
+  import CircleIconButton from '$lib/components/elements/buttons/circle-icon-button.svelte';
 
   export let albumGroups: string[];
   export let searchQuery: string;
@@ -142,22 +143,22 @@
     <!-- Expand Album Groups -->
     <div class="hidden xl:flex gap-0">
       <div class="block">
-        <!-- fixme -->
-        <LinkButton title="Expand all" on:click={() => expandAllAlbumGroups()}>
-          <div class="flex place-items-center gap-2 text-sm">
-            <Icon path={mdiUnfoldMoreHorizontal} size="18" />
-          </div>
-        </LinkButton>
+        <CircleIconButton
+          icon={mdiUnfoldMoreHorizontal}
+          title="Expand all"
+          size="18"
+          on:click={() => expandAllAlbumGroups()}
+        />
       </div>
 
       <!-- Collapse Album Groups -->
       <div class="block">
-        <!-- fixme -->
-        <LinkButton title="Collapse all" on:click={() => collapseAllAlbumGroups(albumGroups)}>
-          <div class="flex place-items-center gap-2 text-sm">
-            <Icon path={mdiUnfoldLessHorizontal} size="18" />
-          </div>
-        </LinkButton>
+        <CircleIconButton
+          icon={mdiUnfoldLessHorizontal}
+          title="Collapse all"
+          size="18"
+          on:click={() => collapseAllAlbumGroups(albumGroups)}
+        />
       </div>
     </div>
   </span>
