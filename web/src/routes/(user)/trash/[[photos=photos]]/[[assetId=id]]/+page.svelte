@@ -2,7 +2,6 @@
   import { goto } from '$app/navigation';
   import empty3Url from '$lib/assets/empty-3.svg';
   import LinkButton from '$lib/components/elements/buttons/link-button.svelte';
-  import Icon from '$lib/components/elements/icon.svelte';
   import UserPageLayout from '$lib/components/layouts/user-page-layout.svelte';
   import DeleteAssets from '$lib/components/photos-page/actions/delete-assets.svelte';
   import RestoreAssets from '$lib/components/photos-page/actions/restore-assets.svelte';
@@ -81,8 +80,8 @@
 {#if $featureFlags.loaded && $featureFlags.trash}
   <UserPageLayout hideNavbar={$isMultiSelectState} title={data.meta.title} scrollbar={false}>
     <div class="flex place-items-center gap-2" slot="buttons">
-      <LinkButton title="Restore all" icon={mdiHistory} on:click={handleRestoreTrash} />
-      <LinkButton title="Empty trash" icon={mdiDeleteOutline} on:click={() => (isShowEmptyConfirmation = true)} />
+      <LinkButton icon={mdiHistory} on:click={handleRestoreTrash}>Restore all</LinkButton>
+      <LinkButton icon={mdiDeleteOutline} on:click={() => (isShowEmptyConfirmation = true)}>Empty trash</LinkButton>
     </div>
 
     <AssetGrid {assetStore} {assetInteractionStore}>

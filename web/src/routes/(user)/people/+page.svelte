@@ -400,7 +400,7 @@
             />
           </div>
         </div>
-        <LinkButton title="Show & hide people" icon={mdiEyeOutline} on:click={() => (selectHidden = !selectHidden)} />
+        <LinkButton icon={mdiEyeOutline} on:click={() => (selectHidden = !selectHidden)}>Show & hide people</LinkButton>
       </div>
     {/if}
   </svelte:fragment>

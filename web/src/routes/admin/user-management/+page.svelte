@@ -172,12 +172,12 @@
                 >
                   {newPassword}
                 </code>
-                <!-- fixme -->
-                <LinkButton on:click={() => copyToClipboard(newPassword)} title="Copy password">
-                  <div class="flex place-items-center gap-2 text-sm">
-                    <Icon path={mdiContentCopy} size="18" />
-                  </div>
-                </LinkButton>
+                <CircleIconButton
+                  icon={mdiContentCopy}
+                  title="Copy password"
+                  size="18"
+                  on:click={() => copyToClipboard(newPassword)}
+                />
               </div>
 
               <p>

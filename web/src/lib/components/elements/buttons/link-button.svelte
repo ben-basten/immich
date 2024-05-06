@@ -8,10 +8,9 @@
   export let color: Color = 'transparent-gray';
   export let disabled = false;
   export let fullwidth = false;
-  export let title: string | undefined = undefined;
   export let icon: string | undefined = undefined;
 </script>
 
-<Button {title} {icon} size="link" {color} shadow={false} rounded="lg" {disabled} on:click {fullwidth}>
+<Button {icon} size="link" {color} shadow={false} rounded="lg" {disabled} on:click {fullwidth} class="text-sm">
   <slot />
 </Button>

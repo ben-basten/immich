@@ -28,7 +28,6 @@
   export let disabled = false;
   export let fullwidth = false;
   export let border = false;
-  export let title: string | undefined = '';
   export let icon: string | undefined = undefined;
   export let form: string | undefined = undefined;
 
@@ -82,11 +81,10 @@
   class:w-full={fullwidth}
   class:border
 >
-  <div class="flex place-items-center gap-2 text-sm">
+  <div class="flex place-items-center gap-2">
     {#if icon}
       <Icon path={icon} size="18" ariaHidden />
     {/if}
-    {title}
+    <div><slot /></div>
   </div>
-  <slot />
 </button>

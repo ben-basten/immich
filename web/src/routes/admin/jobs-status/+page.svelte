@@ -1,7 +1,6 @@
 <script lang="ts">
   import JobsPanel from '$lib/components/admin-page/jobs/jobs-panel.svelte';
   import LinkButton from '$lib/components/elements/buttons/link-button.svelte';
-  import Icon from '$lib/components/elements/icon.svelte';
   import UserPageLayout from '$lib/components/layouts/user-page-layout.svelte';
   import { AppRoute } from '$lib/constants';
   import { asyncTimeout } from '$lib/utils';
@@ -31,7 +30,7 @@
 <UserPageLayout title={data.meta.title} admin>
   <div class="flex justify-end" slot="buttons">
     <a href="{AppRoute.ADMIN_SETTINGS}?isOpen=job">
-      <LinkButton title="Manage concurrency" icon={mdiCog} />
+      <LinkButton icon={mdiCog}>Manage concurrency</LinkButton>
     </a>
   </div>
   <section id="setting-content" class="flex place-content-center sm:mx-4">
