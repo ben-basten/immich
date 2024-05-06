@@ -104,6 +104,7 @@
 </div>
 
 <!-- Create Album -->
+<!-- fixme -->
 <LinkButton on:click={() => createAlbumAndRedirect()}>
   <div class="flex place-items-center gap-2 text-sm">
     <Icon path={mdiPlusBoxOutline} size="18" />
@@ -141,6 +142,7 @@
     <!-- Expand Album Groups -->
     <div class="hidden xl:flex gap-0">
       <div class="block">
+        <!-- fixme -->
         <LinkButton title="Expand all" on:click={() => expandAllAlbumGroups()}>
           <div class="flex place-items-center gap-2 text-sm">
             <Icon path={mdiUnfoldMoreHorizontal} size="18" />
@@ -150,6 +152,7 @@
 
       <!-- Collapse Album Groups -->
       <div class="block">
+        <!-- fixme -->
         <LinkButton title="Collapse all" on:click={() => collapseAllAlbumGroups(albumGroups)}>
           <div class="flex place-items-center gap-2 text-sm">
             <Icon path={mdiUnfoldLessHorizontal} size="18" />
@@ -161,6 +164,7 @@
 {/if}
 
 <!-- Cover/List Display Toggle -->
+<!-- fixme -->
 <LinkButton on:click={() => handleChangeListMode()}>
   <div class="flex place-items-center gap-2 text-sm">
     {#if $albumViewSettings.view === AlbumViewMode.List}

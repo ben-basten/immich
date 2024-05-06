@@ -23,6 +23,7 @@
       <Icon path={isLiked ? mdiHeart : mdiHeartOutline} size={24} />
     </div>
   </button>
+  <!-- fixme -->
   <button on:click={() => dispatch('openActivityTab')}>
     <div class="flex gap-2 items-center justify-center">
       <Icon path={mdiCommentOutline} class="scale-x-[-1]" size={24} />

@@ -321,6 +321,7 @@
 <UserPageLayout title={data.meta.title} admin>
   <div class="flex justify-end gap-2" slot="buttons">
     {#if libraries.length > 0}
+      <!-- fixme -->
       <LinkButton on:click={() => handleScanAll()}>
         <div class="flex gap-1 text-sm">
           <Icon path={mdiSync} size="18" />
@@ -328,6 +329,7 @@
         </div>
       </LinkButton>
     {/if}
+    <!-- fixme -->
     <LinkButton on:click={() => (toCreateLibrary = true)}>
       <div class="flex gap-1 text-sm">
         <Icon path={mdiPlusBoxOutline} size="18" />

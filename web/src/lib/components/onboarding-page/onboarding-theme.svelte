@@ -48,6 +48,7 @@
 
   <div class="flex">
     <div class="w-full flex place-content-end">
+      <!-- fixme -->
       <Button class="flex gap-2 place-content-center" on:click={() => dispatch('done')}>
         <p>Storage Template</p>
         <Icon path={mdiArrowRight} size="18" />

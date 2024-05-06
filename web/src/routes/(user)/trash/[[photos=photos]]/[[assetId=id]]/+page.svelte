@@ -81,12 +81,14 @@
 {#if $featureFlags.loaded && $featureFlags.trash}
   <UserPageLayout hideNavbar={$isMultiSelectState} title={data.meta.title} scrollbar={false}>
     <div class="flex place-items-center gap-2" slot="buttons">
+      <!-- fixme -->
       <LinkButton on:click={handleRestoreTrash}>
         <div class="flex place-items-center gap-2 text-sm">
           <Icon path={mdiHistory} size="18" />
           Restore all
         </div>
       </LinkButton>
+      <!-- fixme -->
       <LinkButton on:click={() => (isShowEmptyConfirmation = true)}>
         <div class="flex place-items-center gap-2 text-sm">
           <Icon path={mdiDeleteOutline} size="18" />

@@ -84,6 +84,7 @@
 
       {#if showAllPeople || people.length > peopleList.length}
         <div class="flex justify-center mt-2">
+          <!-- fixme -->
           <Button
             shadow={false}
             color="text-primary"

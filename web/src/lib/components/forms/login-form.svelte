@@ -117,6 +117,7 @@
     </div>
 
     <div class="my-5 flex w-full">
+      <!-- fixme -->
       <Button type="submit" size="lg" fullwidth disabled={loading}>
         {#if loading}
           <span class="h-6">
@@ -145,6 +146,7 @@
     {#if oauthError}
       <p class="text-center text-red-400" transition:fade>{oauthError}</p>
     {/if}
+    <!-- fixme -->
     <Button
       type="button"
       disabled={loading || oauthLoading}

@@ -67,6 +67,7 @@
 
         {#if !$page.url.pathname.includes('/admin') && showUploadButton}
           <div in:fly={{ x: 50, duration: 250 }}>
+            <!-- fixme -->
             <LinkButton on:click={() => dispatch('uploadClicked')}>
               <div class="flex gap-2">
                 <Icon path={mdiTrayArrowUp} size="1.5em" />

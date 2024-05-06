@@ -174,24 +174,28 @@
 <UserPageLayout title={data.meta.title} admin>
   <svelte:fragment slot="sidebar" />
   <div class="flex justify-end gap-2" slot="buttons">
+    <!-- fixme -->
     <LinkButton on:click={() => handleRepair()} disabled={matches.length === 0 || repairing}>
       <div class="flex place-items-center gap-2 text-sm">
         <Icon path={mdiWrench} size="18" />
         Repair All
       </div>
     </LinkButton>
+    <!-- fixme -->
     <LinkButton on:click={() => handleCheckAll()} disabled={extras.length === 0 || checking}>
       <div class="flex place-items-center gap-2 text-sm">
         <Icon path={mdiCheckAll} size="18" />
         Check All
       </div>
     </LinkButton>
+    <!-- fixme -->
     <LinkButton on:click={() => handleDownload()} disabled={extras.length + orphans.length === 0}>
       <div class="flex place-items-center gap-2 text-sm">
         <Icon path={mdiDownload} size="18" />
         Export
       </div>
     </LinkButton>
+    <!-- fixme -->
     <LinkButton on:click={() => handleRefresh()}>
       <div class="flex place-items-center gap-2 text-sm">
         <Icon path={mdiRefresh} size="18" />

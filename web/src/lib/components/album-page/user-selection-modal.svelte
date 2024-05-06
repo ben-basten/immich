@@ -159,6 +159,7 @@
   <hr />
 
   <div id="shared-buttons" class="mt-4 flex place-content-center place-items-center justify-around">
+    <!-- fixme -->
     <button
       class="flex flex-col place-content-center place-items-center gap-2 hover:cursor-pointer"
       on:click={() => dispatch('share')}
@@ -168,6 +169,7 @@
     </button>
 
     {#if sharedLinks.length}
+      <!-- fixme -->
       <button
         class="flex flex-col place-content-center place-items-center gap-2 hover:cursor-pointer"
         on:click={() => goto(AppRoute.SHARED_LINKS)}

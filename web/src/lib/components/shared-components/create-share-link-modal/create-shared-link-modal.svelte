@@ -256,6 +256,7 @@
     {:else}
       <div class="flex w-full gap-2">
         <input class="immich-form-input w-full" bind:value={sharedLink} disabled />
+        <!-- fixme -->
         <LinkButton on:click={() => (sharedLink ? copyToClipboard(sharedLink) : '')}>
           <div class="flex place-items-center gap-2 text-sm">
             <Icon path={mdiContentCopy} ariaLabel="Copy link to clipboard" size="18" />

@@ -195,18 +195,21 @@
 
   <UserPageLayout title={data.meta.title} admin>
     <div class="flex justify-end gap-2" slot="buttons">
+      <!-- fixme -->
       <LinkButton on:click={() => copyToClipboard(JSON.stringify(config, null, 2))}>
         <div class="flex place-items-center gap-2 text-sm">
           <Icon path={mdiContentCopy} size="18" />
           Copy to Clipboard
         </div>
       </LinkButton>
+      <!-- fixme -->
       <LinkButton on:click={() => downloadConfig()}>
         <div class="flex place-items-center gap-2 text-sm">
           <Icon path={mdiDownload} size="18" />
           Export as JSON
         </div>
       </LinkButton>
+      <!-- fixme -->
       <LinkButton on:click={() => inputElement?.click()}>
         <div class="flex place-items-center gap-2 text-sm">
           <Icon path={mdiUpload} size="18" />

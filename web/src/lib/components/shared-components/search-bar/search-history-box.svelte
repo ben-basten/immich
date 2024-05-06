@@ -34,6 +34,7 @@
       class="flex w-full items-center justify-between text-sm text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-500/10"
     >
       <div class="relative w-full items-center">
+        <!-- fixme -->
         <button
           type="button"
           class="relative flex w-full cursor-pointer gap-3 py-3 pl-5"

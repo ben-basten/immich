@@ -74,6 +74,7 @@
 
 <div use:clickOutside on:outclick={handleClickOutside} on:escape={handleClickOutside}>
   <!-- BUTTON TITLE -->
+  <!-- fixme -->
   <LinkButton on:click={() => (showMenu = true)} fullwidth {title}>
     <div class="flex place-items-center gap-2 text-sm">
       {#if renderedSelectedOption?.icon}
@@ -92,6 +93,7 @@
       {#each options as option (option)}
         {@const renderedOption = renderOption(option)}
         {@const buttonStyle = renderedOption.disabled ? '' : 'transition-all hover:bg-gray-300 dark:hover:bg-gray-800'}
+        <!-- fixme -->
         <button
           class="grid grid-cols-[36px,1fr] place-items-center p-2 disabled:opacity-40 {buttonStyle}"
           disabled={renderedOption.disabled}

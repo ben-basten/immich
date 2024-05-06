@@ -82,6 +82,7 @@
       </div>
 
       <a href={AppRoute.USER_SETTINGS} on:click={() => dispatch('close')}>
+        <!-- fixme -->
         <Button color="dark-gray" size="sm" shadow={false} border>
           <div class="flex place-content-center place-items-center gap-2 px-2">
             <Icon path={mdiCog} size="18" />

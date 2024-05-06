@@ -44,12 +44,14 @@
       >
         <div class="flex pt-4">
           <div class="w-full flex place-content-start">
+            <!-- fixme -->
             <Button class="flex gap-2 place-content-center" on:click={() => dispatch('previous')}>
               <Icon path={mdiArrowLeft} size="18" />
               <p>Theme</p>
             </Button>
           </div>
           <div class="flex w-full place-content-end">
+            <!-- fixme -->
             <Button
               on:click={() => {
                 handleSave({ storageTemplate: config?.storageTemplate });

@@ -71,6 +71,7 @@
     {:else}
       <div class="grid w-full grid-cols-1 gap-2">
         <div class="px-2">
+          <!-- fixme -->
           <button on:click={() => (choosePersonToMerge = false)}> <Icon path={mdiArrowLeft} /></button>
         </div>
         <div class="flex items-center justify-center">

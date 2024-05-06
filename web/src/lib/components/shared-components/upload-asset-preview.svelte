@@ -84,6 +84,7 @@
     </div>
     {#if uploadAsset.state === UploadState.ERROR}
       <div class="flex h-full flex-col place-content-center place-items-center justify-items-center pr-2">
+        <!-- fixme -->
         <button
           on:click={() => handleRetry(uploadAsset)}
           title="Retry upload"
@@ -91,6 +92,7 @@
         >
           <span class="text-immich-dark-gray dark:text-immich-dark-fg"><Icon path={mdiRefresh} size="20" /></span>
         </button>
+        <!-- fixme -->
         <button
           on:click={() => uploadAssetsStore.removeUploadAsset(uploadAsset.id)}
           title="Dismiss error"

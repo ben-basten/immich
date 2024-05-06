@@ -68,6 +68,7 @@
               rel="noopener noreferrer"
               class="flex grow basis-0 justify-center p-4"
             >
+              <!-- fixme -->
               <button class="flex flex-col place-content-center place-items-center gap-2">
                 <Icon path={mdiMessage} size={24} />
                 <p class="text-sm">Get Help</p>
@@ -80,6 +81,7 @@
               rel="noopener noreferrer"
               class="flex grow basis-0 justify-center p-4"
             >
+              <!-- fixme -->
               <button class="flex flex-col place-content-center place-items-center gap-2">
                 <Icon path={mdiPartyPopper} size={24} />
                 <p class="text-sm">Read Changelog</p>
@@ -92,6 +94,7 @@
               rel="noopener noreferrer"
               class="flex grow basis-0 justify-center p-4"
             >
+              <!-- fixme -->
               <button class="flex flex-col place-content-center place-items-center gap-2">
                 <Icon path={mdiCodeTags} size={24} />
                 <p class="text-sm">Check Logs</p>

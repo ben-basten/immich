@@ -35,13 +35,14 @@
 
 <UserPageLayout title={data.meta.title}>
   <div class="flex" slot="buttons">
+    <!-- fixme -->
     <LinkButton on:click={() => createAlbumAndRedirect()}>
       <div class="flex flex-wrap place-items-center justify-center gap-x-1 text-sm">
         <Icon path={mdiPlusBoxOutline} size="18" class="shrink-0" />
         <span class="leading-none max-sm:text-xs">Create album</span>
       </div>
     </LinkButton>
-
+    <!-- fixme -->
     <LinkButton on:click={() => goto(AppRoute.SHARED_LINKS)}>
       <div class="flex flex-wrap place-items-center justify-center gap-x-1 text-sm">
         <Icon path={mdiLink} size="18" class="shrink-0" />

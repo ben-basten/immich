@@ -619,6 +619,7 @@
               <section id="empty-album" class=" mt-[200px] flex place-content-center place-items-center">
                 <div class="w-[300px]">
                   <p class="text-xs dark:text-immich-dark-fg">ADD PHOTOS</p>
+                  <!-- fixme -->
                   <button
                     on:click={() => (viewMode = ViewMode.SELECT_ASSETS)}
                     class="mt-5 flex w-full place-items-center gap-6 rounded-md border bg-immich-bg px-8 py-8 text-immich-fg transition-all hover:bg-gray-100 hover:text-immich-primary dark:border-none dark:bg-immich-dark-gray dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"

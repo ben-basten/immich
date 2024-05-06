@@ -400,6 +400,7 @@
             />
           </div>
         </div>
+        <!-- fixme -->
         <LinkButton on:click={() => (selectHidden = !selectHidden)}>
           <div class="flex flex-wrap place-items-center justify-center gap-x-1 text-sm">
             <Icon path={mdiEyeOutline} size="18" />

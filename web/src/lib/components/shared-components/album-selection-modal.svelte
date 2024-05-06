@@ -74,6 +74,7 @@
         bind:value={search}
       />
       <div class="immich-scrollbar overflow-y-auto">
+        <!-- fixme -->
         <button
           on:click={handleNew}
           class="flex w-full items-center gap-4 px-6 py-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl"
