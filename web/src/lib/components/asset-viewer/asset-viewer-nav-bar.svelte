@@ -209,16 +209,37 @@
         {#if isShowAssetOptions}
           <ContextMenu {...contextMenuPosition} direction="left">
             {#if showSlideshow}
-              <MenuOption icon={mdiPresentationPlay} on:click={() => onMenuClick('playSlideShow')} text="Slideshow" />
+              <MenuOption
+                id="menu-play-presentation"
+                icon={mdiPresentationPlay}
+                on:click={() => onMenuClick('playSlideShow')}
+                text="Slideshow"
+              />
             {/if}
             {#if showDownloadButton}
-              <MenuOption icon={mdiFolderDownloadOutline} on:click={() => onMenuClick('download')} text="Download" />
+              <MenuOption
+                id="menu-download-asset"
+                icon={mdiFolderDownloadOutline}
+                on:click={() => onMenuClick('download')}
+                text="Download"
+              />
             {/if}
             {#if asset.isTrashed}
-              <MenuOption icon={mdiHistory} on:click={() => onMenuClick('restoreAsset')} text="Restore" />
-            {:else}
-              <MenuOption icon={mdiImageAlbum} on:click={() => onMenuClick('addToAlbum')} text="Add to album" />
               <MenuOption
+                id="menu-restore-asset"
+                icon={mdiHistory}
+                on:click={() => onMenuClick('restoreAsset')}
+                text="Restore"
+              />
+            {:else}
+              <MenuOption
+                id="menu-add-to-album"
+                icon={mdiImageAlbum}
+                on:click={() => onMenuClick('addToAlbum')}
+                text="Add to album"
+              />
+              <MenuOption
+                id="menu-add-to-shared-album"
                 icon={mdiShareVariantOutline}
                 on:click={() => onMenuClick('addToSharedAlbum')}
                 text="Add to shared album"
@@ -227,10 +248,16 @@
 
             {#if isOwner}
               {#if hasStackChildren}
-                <MenuOption icon={mdiImageMinusOutline} on:click={() => onMenuClick('unstack')} text="Un-stack" />
+                <MenuOption
+                  id="menu-un-stack"
+                  icon={mdiImageMinusOutline}
+                  on:click={() => onMenuClick('unstack')}
+                  text="Un-stack"
+                />
               {/if}
               {#if album}
                 <MenuOption
+                  id="menu-set-as-album-cover"
                   text="Set as album cover"
                   icon={mdiImageOutline}
                   on:click={() => onMenuClick('setAsAlbumCover')}
@@ -238,34 +265,40 @@
               {/if}
               {#if asset.type === AssetTypeEnum.Image}
                 <MenuOption
+                  id="menu-set-as-profile-image"
                   icon={mdiAccountCircleOutline}
                   on:click={() => onMenuClick('asProfileImage')}
                   text="Set as profile picture"
                 />
               {/if}
               <MenuOption
+                id="menu-archive-asset"
                 on:click={() => dispatch('toggleArchive')}
                 icon={asset.isArchived ? mdiArchiveArrowUpOutline : mdiArchiveArrowDownOutline}
                 text={asset.isArchived ? 'Unarchive' : 'Archive'}
               />
               <MenuOption
+                id="menu-replace-asset"
                 icon={mdiUpload}
                 on:click={() => openFileUploadDialog({ multiple: false, assetId: asset.id })}
                 text="Replace with upload"
               />
               <hr />
               <MenuOption
+                id="menu-refresh-metadata"
                 icon={mdiDatabaseRefreshOutline}
                 on:click={() => onJobClick(AssetJobName.RefreshMetadata)}
                 text={getAssetJobName(AssetJobName.RefreshMetadata)}
               />
               <MenuOption
+                id="menu-regenerate-thumbnail"
                 icon={mdiImageRefreshOutline}
                 on:click={() => onJobClick(AssetJobName.RegenerateThumbnail)}
                 text={getAssetJobName(AssetJobName.RegenerateThumbnail)}
               />
               {#if asset.type === AssetTypeEnum.Video}
                 <MenuOption
+                  id="menu-transcode-video"
                   icon={mdiCogRefreshOutline}
                   on:click={() => onJobClick(AssetJobName.TranscodeVideo)}
                   text={getAssetJobName(AssetJobName.TranscodeVideo)}
