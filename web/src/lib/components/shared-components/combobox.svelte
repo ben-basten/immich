@@ -19,6 +19,7 @@
   import { clickOutside } from '$lib/actions/click-outside';
   import { focusOutside } from '$lib/actions/focus-outside';
   import CircleIconButton from '$lib/components/elements/buttons/circle-icon-button.svelte';
+  import { listNavigationV2 } from '$lib/actions/list-navigation-v2';
 
   /**
    * Unique identifier for the combobox.
@@ -42,6 +43,7 @@
   let selectedIndex: number | undefined;
   let optionRefs: HTMLElement[] = [];
   let input: HTMLInputElement;
+  let suggestionContainer: HTMLUListElement;
   const inputId = `combobox-${id}`;
   const listboxId = `listbox-${id}`;
 
@@ -75,14 +77,8 @@
     selectedIndex = undefined;
   };
 
-  const incrementSelectedIndex = async (increment: number) => {
-    if (filteredOptions.length === 0) {
-      selectedIndex = 0;
-    } else if (selectedIndex === undefined) {
-      selectedIndex = increment === 1 ? 0 : filteredOptions.length - 1;
-    } else {
-      selectedIndex = (selectedIndex + increment + filteredOptions.length) % filteredOptions.length;
-    }
+  const updateSelectedIndex = async (index: number) => {
+    selectedIndex = index;
     await tick();
     optionRefs[selectedIndex]?.scrollIntoView({ block: 'nearest' });
   };
@@ -153,41 +149,20 @@
       role="combobox"
       type="text"
       value={searchQuery}
+      use:listNavigationV2={{
+        container: suggestionContainer,
+        activeId: selectedIndex || selectedIndex === 0 ? `${listboxId}-${selectedIndex}` : undefined,
+        selectionChanged: (_, index) => {
+          void updateSelectedIndex(index);
+        },
+        openDropdown,
+        closeDropdown,
+      }}
       use:shortcuts={[
-        {
-          shortcut: { key: 'ArrowUp' },
-          onShortcut: () => {
-            openDropdown();
-            void incrementSelectedIndex(-1);
-          },
-        },
-        {
-          shortcut: { key: 'ArrowDown' },
-          onShortcut: () => {
-            openDropdown();
-            void incrementSelectedIndex(1);
-          },
-        },
         {
           shortcut: { key: 'ArrowDown', alt: true },
           onShortcut: () => {
             openDropdown();
-          },
-        },
-        {
-          shortcut: { key: 'Enter' },
-          onShortcut: () => {
-            if (selectedIndex !== undefined && filteredOptions.length > 0) {
-              onSelect(filteredOptions[selectedIndex]);
-            }
-            closeDropdown();
-          },
-        },
-        {
-          shortcut: { key: 'Escape' },
-          onShortcut: (event) => {
-            event.stopPropagation();
-            closeDropdown();
           },
         },
       ]}
@@ -213,6 +188,7 @@
     class="absolute text-left text-sm w-full max-h-64 overflow-y-auto bg-white dark:bg-gray-800 border-t-0 border-gray-300 dark:border-gray-900 rounded-b-xl z-10"
     class:border={isOpen}
     tabindex="-1"
+    bind:this={suggestionContainer}
   >
     {#if isOpen}
       {#if filteredOptions.length === 0}
