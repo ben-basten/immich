@@ -5,8 +5,8 @@ import type { Action } from 'svelte/action';
 interface Options {
   container: HTMLElement;
   activeId: string | undefined;
-  selectionChanged?: (newId: string, newIndex: number) => void;
-  openDropdown: () => void;
+  selectionChanged: (newId: string | undefined, newIndex: number | undefined) => void;
+  openDropdown: (event: KeyboardEvent) => void;
   closeDropdown: () => void;
 }
 
@@ -16,9 +16,15 @@ export const listNavigationV2: Action<HTMLElement, Options> = (node, options: Op
     return container.querySelector(`#${activeId}`) as HTMLElement | null;
   };
 
-  const moveSelection = async (direction: 'up' | 'down') => {
+  const close = () => {
+    const { closeDropdown, selectionChanged } = options;
+    selectionChanged(undefined, undefined);
+    closeDropdown();
+  };
+
+  const moveSelection = async (direction: 'up' | 'down', event: KeyboardEvent) => {
     const { selectionChanged, container, openDropdown } = options;
-    openDropdown();
+    openDropdown(event);
 
     await tick();
 
@@ -32,31 +38,26 @@ export const listNavigationV2: Action<HTMLElement, Options> = (node, options: Op
     const directionFactor = (direction === 'up' ? -1 : 1) + (direction === 'up' && currentIndex === -1 ? 1 : 0);
     const newIndex = (currentIndex + directionFactor + children.length) % children.length;
 
-    if (selectionChanged) {
-      selectionChanged(children[newIndex].id, newIndex);
-    }
+    selectionChanged(children[newIndex].id, newIndex);
   };
 
   const onEnter = () => {
-    const { closeDropdown } = options;
     const currentEl = getCurrentElement();
     if (currentEl) {
-      console.log('clicking');
       currentEl.click();
     }
 
-    closeDropdown();
+    close();
   };
 
   const onEscape = (event: KeyboardEvent) => {
-    const { closeDropdown } = options;
     event.stopPropagation();
-    closeDropdown();
+    close();
   };
 
   const { destroy } = shortcuts(node, [
-    { shortcut: { key: 'ArrowUp' }, onShortcut: () => moveSelection('up'), ignoreInputFields: false },
-    { shortcut: { key: 'ArrowDown' }, onShortcut: () => moveSelection('down'), ignoreInputFields: false },
+    { shortcut: { key: 'ArrowUp' }, onShortcut: (event) => moveSelection('up', event), ignoreInputFields: false },
+    { shortcut: { key: 'ArrowDown' }, onShortcut: (event) => moveSelection('down', event), ignoreInputFields: false },
     { shortcut: { key: 'Enter' }, onShortcut: () => onEnter(), ignoreInputFields: false },
     { shortcut: { key: 'Escape' }, onShortcut: (event) => onEscape(event), ignoreInputFields: false },
   ]);
