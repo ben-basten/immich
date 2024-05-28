@@ -66,6 +66,10 @@ export const listNavigationV2: Action<HTMLElement, Options> = (node, options: Op
 
   return {
     update(newOptions) {
+      if (options.container) {
+        const currentEl = getCurrentElement();
+        currentEl?.classList.remove('!bg-red-500');
+      }
       options = newOptions;
     },
     destroy,
