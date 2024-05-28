@@ -68,7 +68,12 @@
     style:top="{top}px"
     style:left="{left}px"
     role="menu"
-    use:clickOutside={{ onOutclick: () => (isVisible = false) }}
+    use:clickOutside={{
+      onOutclick: () => {
+        isVisible = false;
+        activeId = undefined;
+      },
+    }}
     on:outclick
     on:escape
   >
