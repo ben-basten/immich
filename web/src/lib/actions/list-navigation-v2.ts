@@ -34,9 +34,11 @@ export const listNavigationV2: Action<HTMLElement, Options> = (node, options: Op
     }
 
     const currentEl = getCurrentElement();
+    currentEl?.classList.remove('!bg-red-500');
     const currentIndex = currentEl ? children.indexOf(currentEl) : -1;
     const directionFactor = (direction === 'up' ? -1 : 1) + (direction === 'up' && currentIndex === -1 ? 1 : 0);
     const newIndex = (currentIndex + directionFactor + children.length) % children.length;
+    children[newIndex].classList.add('!bg-red-500');
 
     selectionChanged(children[newIndex].id, newIndex);
   };

@@ -74,15 +74,15 @@
   >
     <ul
       bind:this={itemContainer}
-      class="flex flex-col rounded-lg"
+      class="flex flex-col rounded-lg transition-all duration-300 ease-in-out"
+      class:max-h-0={!isVisible}
+      class:max-h-[100vh]={isVisible}
       role="menu"
       aria-activedescendant={activeId}
       tabindex="-1"
       transition:slide={{ duration: 250, easing: quintOut }}
     >
-      {#if isVisible}
-        <slot />
-      {/if}
+      <slot />
     </ul>
   </div>
 </div>
